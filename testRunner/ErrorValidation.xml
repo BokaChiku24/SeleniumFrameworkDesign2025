@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+    <groups>
+        <run>
+            <include name="ErrorHandling"/>
+        </run>
+    </groups>
+    <test verbose="2" preserve-order="true" name="/Users/kunalchavan/IdeaProjects/SeleniumFrameworkDesign"
+          thread-count="5">
+        <classes>
+            <class name="standalone.ErrorValidationTest"/>
+        </classes>
+    </test>
+
+    <test name="Positive test cases" thread-count="5">
+        <classes>
+            <class name="standalone.OptimizeDesign"/>
+        </classes>
+    </test>
+
+    <test name="Standalone test case" thread-count="5">
+        <classes>
+            <class name="standalone.StandAloneDesign"/>
+        </classes>
+    </test>
+</suite>

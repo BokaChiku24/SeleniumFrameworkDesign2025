@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import testcomponents.BaseTest;
 
 public class ErrorValidationTest extends BaseTest {
-    @Test
+    @Test(groups={"ErrorHandling"})
     public void errorTest(){
         obj.login("kc@gmail.com","62387512");
         String actualErrorMessage = obj.getErrorMessage();
