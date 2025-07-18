@@ -1,0 +1,23 @@
+
+Design Selenium Framework from Scratch
+
+1) Why Gramework? Its advantages
+2) Create Maven Structured Framework with all necessary Automation dependence
+3) Select Sample Ecommerece Application to Automate the end-to-end flow.
+4) Imlement Page Object Maodel mechanisum to drive the locators from respective class
+5) Drive object creation withing Page Object Class encapsulation if from Test
+6) Create Base Test which set browser configuration details and Global properties.
+7) Decide the Test Strategy how test should be clubbed & distributed with appropriate annoations
+8) Create TestNG runner file to trigger the test with one SIngle point of execution control
+9) Introduce Grouping in TestNG.xml to categorize tests with different tags of execution
+10) Implement Data driven & Parameterization testing using testNG data provider HashMap & JSON File reader
+11) Implement TestNG Listners to capture Screenshot on automatic test failure & logging
+12) Create extent report wrapper to generate excellent HTML report for the application
+13) Make framework necessary changes to support parallel execution with Thread safe mechanisum
+14) Implement TestNG retry mechanisum to rerun the failed lanky in the application
+15) Run the framework with the mvn commands
+16) Implement mvn runtime variable to replace global variable in the framework
+17) integrate the framework with Jenkins with parameterize build pipeline jobs & Schedule job on specific time.
+18) Add cucumber wrapper to existing framework with Cucumber TestNG Runner.
+19) Create cucumber feature file & step defination to support cucumber execution of selenium.
+20) Understand how cucumber tag, data driven & parameterization works in running test
