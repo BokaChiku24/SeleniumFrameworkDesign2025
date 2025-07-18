@@ -1,4 +1,4 @@
-package standalonetest;
+package standalone;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

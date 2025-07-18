@@ -1,4 +1,4 @@
-package standalonetest;
+package standalone;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +23,7 @@ public class StandAloneDesign {
     WebDriverWait wait;
 
     @Test
-    public void endToEnd() {
+    public void endToEnd() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -61,6 +61,7 @@ public class StandAloneDesign {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("button[routerlink*='cart']"))));
 
         // go to cart
+        Thread.sleep(Duration.ofSeconds(2));
         driver.findElement(By.cssSelector("button[routerlink*='cart']")).click();
         List<WebElement> listOfCartProduct = driver.findElements(By.cssSelector(".cartSection h3"));
         boolean flag = listOfCartProduct.stream().anyMatch(s -> s.getText().equalsIgnoreCase(prodName));
@@ -81,7 +82,7 @@ public class StandAloneDesign {
         String expectedTest = "Thankyou for the order.";
         Assert.assertEquals(actualText,expectedTest.toUpperCase());
         Assert.assertTrue(actualText.equalsIgnoreCase(expectedTest));
-        // driver.close();
+        driver.close();
     }
 
     public void creatAnAccount() {
