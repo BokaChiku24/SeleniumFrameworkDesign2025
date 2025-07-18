@@ -58,6 +58,7 @@ public class ProductCatalogue extends AbstractComponents {
 
     public CartPage addProductToCart(String productName){
         WebElement prod =  getProductName(productName);
+        invisibilityOfElementByLocator(spinner);
         prod.findElement(addTocart).click();
         visibilityOfElementByLocator(toastMessage);
         invisibilityOfElementByLocator(spinner);
