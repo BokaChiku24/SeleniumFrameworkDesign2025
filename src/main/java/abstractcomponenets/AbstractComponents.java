@@ -52,13 +52,13 @@ public class AbstractComponents {
     }
 
     public void invisibilityOfElementByLocator(By findBy) {
-        /*
+
         try {
-            Thread.sleep(Duration.ofSeconds(2000L));
+            Thread.sleep(Duration.ofSeconds(5L));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        */
+
         wait.until(ExpectedConditions.invisibilityOfElementLocated(findBy));
     }
 

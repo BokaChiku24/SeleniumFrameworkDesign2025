@@ -8,9 +8,9 @@ import testcomponents.BaseTest;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
-public class OptimizeDesign extends BaseTest {
+public class OptimizeDesignWithoutJSON extends BaseTest {
 
     @Test(dataProvider = "getData", groups = {"Purchase"})
     public void endToEnd(HashMap<String,String> map) throws IOException {
@@ -36,17 +36,6 @@ public class OptimizeDesign extends BaseTest {
         Assert.assertEquals(mo.getOrderProductName(map.get("prodName")), map.get("prodName"));
     }
 
-    @DataProvider(name = "getData")
-    public Object[][] getDataFromDataProvider() throws IOException {
-        List<HashMap<String,String>> data = getJsonDataToMap("Purchase");
-        return new Object[][]{{data.get(0)}, {data.get(1)}, {data.get(2)}};
-    }
-    @DataProvider(name = "getOrderData")
-    public Object[][] getData() throws IOException {
-        List<HashMap<String,String>> data = getJsonDataToMap("Purchase");
-        return new Object[][]{{data.get(0)}, {data.get(1)}, {data.get(2)}};
-    }
-    /*
     @DataProvider(name = "getData")
     public Object[][] getDataFromDataProvider() {
         Map<String, String> map = new HashMap<String, String>();
@@ -76,7 +65,6 @@ public class OptimizeDesign extends BaseTest {
         map1.put("prodName", "IPHONE 13 PRO");
         return new Object[][]{{map}, {map1}};
     }
-     */
 
     /* return object
     @DataProvider(name = "getData")

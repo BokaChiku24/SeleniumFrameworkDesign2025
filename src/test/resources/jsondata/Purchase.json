@@ -1,0 +1,20 @@
+[
+  {
+    "email" : "testkc@gmail.com",
+    "password" : "Admin@123",
+    "prodName": "ZARA COAT 3",
+    "country": "India"
+  },
+  {
+    "email" : "testkc@gmail.com",
+    "password" : "Admin@123",
+    "prodName": "IPHONE 13 PRO",
+    "country": "Brazil"
+  },
+  {
+    "email" : "testkc@gmail.com",
+    "password" : "Admin@123",
+    "prodName": "ADIDAS ORIGINAL",
+    "country": "Spain"
+  }
+]
