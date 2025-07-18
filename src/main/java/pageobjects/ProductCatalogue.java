@@ -56,10 +56,12 @@ public class ProductCatalogue extends AbstractComponents {
                 .getText().equalsIgnoreCase(productName)).findFirst().orElse(null);
     }
 
-    public void addProductToCart(String productName){
+    public CartPage addProductToCart(String productName){
         WebElement prod =  getProductName(productName);
         prod.findElement(addTocart).click();
         visibilityOfElementByLocator(toastMessage);
         invisibilityOfElementByLocator(spinner);
+        CartPage cp = new CartPage(driver);
+        return cp;
     }
 }

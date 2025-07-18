@@ -29,13 +29,15 @@ public class CartPage extends AbstractComponents {
 
     public boolean goToCart(String prodName) {
         visibilityOfElementByWebElement(cartBtn);
-        cartBtn.click();
+        goToCart();
         boolean flag = listOfCartProduct.stream().anyMatch(s -> s.getText().equalsIgnoreCase(prodName));
         return flag;
     }
 
-    public void gotoPayment(){
+    public PaymentPage gotoPayment(){
         paymentBtn.click();
+        PaymentPage pp = new PaymentPage(driver);
+        return pp;
     }
 
 }

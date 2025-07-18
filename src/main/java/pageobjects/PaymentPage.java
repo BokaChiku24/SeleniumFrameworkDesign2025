@@ -24,14 +24,15 @@ public class PaymentPage extends AbstractComponents {
         PageFactory.initElements(driver, this);
     }
 
-    public void goToSummary(String country) {
-
+    public OrderSummary goToSummary(String country) {
         actionsClassObject().moveToElement(countrySelection).click().build().perform();
         actionsClassObject().sendKeys(countrySelection, country).build().perform();
         elementToBeClickableByLocator(countrySection);
         driver.findElement(By.xpath(".//section[@class='ta-results list-group ng-star-inserted']//button//span[text()='" + " " + country + "']"))
                 .click();
         submitBtn.click();
+        OrderSummary os = new OrderSummary(driver);
+        return os;
     }
 
 }
