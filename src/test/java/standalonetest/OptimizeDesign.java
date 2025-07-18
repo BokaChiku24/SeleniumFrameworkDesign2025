@@ -36,7 +36,8 @@ public class OptimizeDesign{
 
         // add item to cart
         ProductCatalogue pc = new ProductCatalogue(driver);
-        pc.selectProduct(prodName);
+        //pc.selectProduct(prodName);
+        pc.addProductToCart(prodName);
 
         // go to cart
         CartPage cp = new CartPage(driver);

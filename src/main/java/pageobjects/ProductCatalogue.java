@@ -15,9 +15,13 @@ public class ProductCatalogue extends AbstractComponents {
     private By productAppears = By.cssSelector(".mb-3 h5");
     private By toastMessage = By.cssSelector("#toast-container");
     private By spinner = By.cssSelector(".ng-animating");
+    private By addTocart = By.cssSelector(".card-body button:last-of-type");
 
     @FindBy(css = ".mb-3 h5")
     private List<WebElement> productList;
+
+    @FindBy(css = ".mb-3")
+    private List<WebElement> productListNew;
 
     @FindBy(css = ".mb-3 div[class='card-body'] button[class='btn w-10 rounded']")
     private List<WebElement> productAddCart;
@@ -28,17 +32,11 @@ public class ProductCatalogue extends AbstractComponents {
     public ProductCatalogue(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     public void selectProduct(String prodName) {
         visibilityOfElementByLocator(productAppears);
-        /*
-         List<WebElement> productList = driver.findElements(By.cssSelector(".mb-3"));
-        WebElement prod = productList.stream().filter(s->s.getText()
-                .equalsIgnoreCase("ZARA COAT 3")).findFirst().orElse(null);
-        prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
-        */
         for (int i = 0; i < productList.size(); i++) {
             if (productList.get(i).getText().equalsIgnoreCase(prodName)) {
                 productAddCart.get(i).click();
@@ -47,7 +45,21 @@ public class ProductCatalogue extends AbstractComponents {
         }
         visibilityOfElementByLocator(toastMessage);
         invisibilityOfElementByLocator(spinner);
-
+    }
+    public List<WebElement> getProductList(){
+        visibilityOfElementByLocator(productAppears);
+        return productListNew;
     }
 
+    public WebElement getProductName(String productName){
+        return getProductList().stream().filter(product->product.findElement(By.cssSelector("b"))
+                .getText().equalsIgnoreCase(productName)).findFirst().orElse(null);
+    }
+
+    public void addProductToCart(String productName){
+        WebElement prod =  getProductName(productName);
+        prod.findElement(addTocart).click();
+        visibilityOfElementByLocator(toastMessage);
+        invisibilityOfElementByLocator(spinner);
+    }
 }
