@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/kunalchavan/IdeaProjects/SeleniumFrameworkDesign">
+        <classes>
+            <class name="standalonetest.ErrorValidationTest">
+                <methods>
+                    <include name="errorTest"/>
+                </methods>
+            </class>
+            <class name="standalonetest.OptimizeDesign">
+                <methods>
+                    <include name="endToEnd"/>
+                </methods>
+            </class>
+            <class name="standalonetest.StandAloneDesign">
+                <methods>
+                    <include name="endToEnd"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

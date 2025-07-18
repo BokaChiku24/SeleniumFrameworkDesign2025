@@ -21,18 +21,21 @@ public class OptimizeDesign extends BaseTest {
         // create an account
         // RegisterPage rp = new RegisterPage(driver);
         // rp.registerUser(wait,email,password);
-        ProductCatalogue pc = obj.login(email,password);
+        ProductCatalogue pc = obj.login(email, password);
         pc.addProductToCart(prodName);
-
         CartPage cp = pc.addProductToCart(prodName);
         Assert.assertTrue(cp.goToCart(prodName));
-
         PaymentPage pp = cp.gotoPayment();
-
-        OrderSummary os =  pp.goToSummary(country);
+        OrderSummary os = pp.goToSummary(country);
         String actualText = os.orderDetails();
         String expectedTest = "Thankyou for the order.";
-        Assert.assertEquals(actualText,expectedTest.toUpperCase());
+        Assert.assertEquals(actualText, expectedTest.toUpperCase());
         Assert.assertTrue(actualText.equalsIgnoreCase(expectedTest));
     }
+
+    @Test(dependsOnMethods = {"endToEnd"})
+    public void orderValidation() {
+
+    }
+
 }
