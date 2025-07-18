@@ -28,9 +28,10 @@ public class CartPage extends AbstractComponents {
     }
 
     public boolean goToCart(String prodName) {
-        visibilityOfElementByWebElement(cartBtn);
-        goToCart();
-        boolean flag = listOfCartProduct.stream().anyMatch(s -> s.getText().equalsIgnoreCase(prodName));
+        // visibilityOfElementByWebElement(cartBtn);
+        // goToCart();
+        boolean flag = goToCart().listOfCartProduct.stream()
+                .anyMatch(s -> s.getText().equalsIgnoreCase(prodName));
         return flag;
     }
 

@@ -9,32 +9,21 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class ProductCatalogue extends AbstractComponents {
+public class MyOrders extends AbstractComponents {
     private WebDriver driver;
 
-    private By productAppears = By.cssSelector(".mb-3 h5");
-    private By toastMessage = By.cssSelector("#toast-container");
-    private By spinner = By.cssSelector(".ng-animating");
-    private By addTocart = By.cssSelector(".card-body button:last-of-type");
+    private By orderProduceList = By.cssSelector("tbody td:nth-child(3)");
 
-    @FindBy(css = ".mb-3 h5")
-    private List<WebElement> productList;
+    @FindBy(css = "tbody td:nth-child(3)")
+    private List<WebElement> orderProductList;
 
-    @FindBy(css = ".mb-3")
-    private List<WebElement> productListNew;
-
-    @FindBy(css = ".mb-3 div[class='card-body'] button[class='btn w-10 rounded']")
-    private List<WebElement> productAddCart;
-
-    @FindBy(css = "button[routerlink*='cart']")
-    private WebElement cartBtn;
-
-    public ProductCatalogue(WebDriver driver) {
+    public MyOrders(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    /*
     public void selectProduct(String prodName) {
         visibilityOfElementByLocator(productAppears);
         for (int i = 0; i < productList.size(); i++) {
@@ -46,16 +35,19 @@ public class ProductCatalogue extends AbstractComponents {
         visibilityOfElementByLocator(toastMessage);
         invisibilityOfElementByLocator(spinner);
     }
-    public List<WebElement> getProductList(){
-        visibilityOfElementByLocator(productAppears);
-        return productListNew;
+     */
+    public List<WebElement> getOrderProductName() {
+        visibilityOfElementByLocator(orderProduceList);
+        return orderProductList;
     }
 
-    public WebElement getProductName(String productName){
-        return getProductList().stream().filter(product->product.findElement(By.cssSelector("b"))
+    public String getOrderProductName(String productName) {
+        WebElement order = getOrderProductName().stream().filter(product -> product
                 .getText().equalsIgnoreCase(productName)).findFirst().orElse(null);
+        return order.getText();
     }
 
+    /*
     public CartPage addProductToCart(String productName){
         WebElement prod =  getProductName(productName);
         prod.findElement(addTocart).click();
@@ -64,6 +56,6 @@ public class ProductCatalogue extends AbstractComponents {
         CartPage cp = new CartPage(driver);
         return cp;
     }
-
+*/
 
 }

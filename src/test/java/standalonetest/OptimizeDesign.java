@@ -17,7 +17,6 @@ public class OptimizeDesign extends BaseTest {
 
     @Test
     public void endToEnd() throws IOException {
-
         // create an account
         // RegisterPage rp = new RegisterPage(driver);
         // rp.registerUser(wait,email,password);
@@ -35,7 +34,9 @@ public class OptimizeDesign extends BaseTest {
 
     @Test(dependsOnMethods = {"endToEnd"})
     public void orderValidation() {
-
+        ProductCatalogue pc = obj.login(email, password);
+        MyOrders mo = pc.goToOrder();
+        Assert.assertEquals(mo.getOrderProductName(prodName),prodName);
     }
 
 }

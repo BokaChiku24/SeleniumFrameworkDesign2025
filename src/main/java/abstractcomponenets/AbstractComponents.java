@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageobjects.CartPage;
+import pageobjects.MyOrders;
 
 import java.time.Duration;
 
@@ -20,14 +22,25 @@ public class AbstractComponents {
     private WebElement cartBtn;
     // button[routerlink*='cart']
 
-    public void goToCart(){
+    @FindBy(css = "li:nth-child(3) button.btn.btn-custom")
+    private WebElement orderBtn;
+
+    public CartPage goToCart() {
         cartBtn.click();
+        CartPage obj = new CartPage(driver);
+        return obj;
+    }
+
+    public MyOrders goToOrder() {
+        orderBtn.click();
+        MyOrders obj = new MyOrders(driver);
+        return obj;
     }
 
     public AbstractComponents(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10L));
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     public void visibilityOfElementByLocator(By findBy) {
