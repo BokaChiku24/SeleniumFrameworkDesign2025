@@ -1,7 +1,7 @@
 Cucumber Terminologies:
 
 What is Gherkin?
-It is a Business Readable, Domain Specific lanaguage that lets you describe behaviour.
+It is a Business Readable, Domain Specific language that lets you describe behaviour.
 Example: Popup messaged is displayed when buttons are clicked and errors are gone
 
 Developer: Popup message is displayed and errors are gone on button clicked
@@ -28,7 +28,44 @@ Given: User is on pay card page
 When: User fills all details and select minimum amount
 And: User clicks on the pay button
 Then: Credit card confirmation page displayed
+And if reference number is displayed
+But error message is not displayed
 
 When we specify a business requirement, sometimes there are multiple pre-conditions, user action, and expected results.
 
+Feature and Feature File:
+Feature represents Business requirement.
+Feature File acts as a Test Suite which consists of all Scenarios.
+
+In Cucumber, Feature files contains Scenarios. We can simply create file with .feature extension.
+Scenarios belonging to specific are of Application will be grouped into one Feature File.
+
+The text that immediately follows the Feature keyword, and is the same line, is the Title of the
+Feature file.
+Feature file should contain either Scenario or Scenarios Outline.The naming convention for Feature files should
+be lowercase with .feature extension.
+
+Feature Credit card payment
+In order to test Credit Card Payment functionality
+As a Credit Card user
+I want to complete the payment through online
+
+Scenario: Make minium due payment
+Given User is on pay card page
+When User fills all details and select minimum amount
+And User clicks on the pay button
+Then Credit card confirmation page is displayed
+
+Scenario: Pay statement balance
+Given User is on pay card page
+When User fills all details and select minimum amount
+And User clicks on the pay button
+Then Credit card confirmation page is displayed
+
+Scenario: Enter Another Amount as 0
+Given User is on pay card page
+When User fills all details and select other amount and enter 0
+And User clicks on the pay button
+Then Credit card confirmation page is displayed
+But error message is displayed
 
