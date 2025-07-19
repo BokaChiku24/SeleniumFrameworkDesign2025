@@ -41,7 +41,7 @@ public class LandingPage extends AbstractComponents {
 
     public String getErrorMessage(){
         visibilityOfElementByWebElement(errorToast);
-        return errorToast.getText();
+        return errorToast.getText().trim();
     }
 
 }

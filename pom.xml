@@ -123,7 +123,7 @@
                         <version>3.5.3</version>
                         <configuration>
                             <includes>
-                                <include>src/test/java/cucumber/runner/TestNGTestRunner.java</include>
+                                <include>**/TestNGTestRunner.java</include>
                             </includes>
                         </configuration>
                     </plugin>

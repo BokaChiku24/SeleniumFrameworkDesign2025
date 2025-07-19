@@ -49,4 +49,12 @@ public class StepDefinationImp extends BaseTest {
         Assert.assertTrue(actualText.toUpperCase().trim().equalsIgnoreCase(expectedTest));
         driver.close();
     }
+
+    @Then("{string} message is displayed")
+    public void message_is_displayed(String string){
+        String actualErrorMessage = obj.getErrorMessage();
+        Assert.assertEquals(actualErrorMessage, "Incorrect email or password.");
+        driver.close();
+    }
+
 }
