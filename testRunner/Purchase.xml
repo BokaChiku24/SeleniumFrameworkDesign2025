@@ -6,6 +6,9 @@
             <include name="Purchase"/>
         </run>
     </groups>
+    <listeners>
+        <listener class-name="testcomponents.TestListeners"></listener>
+    </listeners>
     <test verbose="2" preserve-order="true" name="/Users/kunalchavan/IdeaProjects/SeleniumFrameworkDesign"
           thread-count="5">
         <classes>
@@ -19,9 +22,11 @@
         </classes>
     </test>
 
+    <!--
     <test name="Standalone test case" thread-count="5">
         <classes>
             <class name="standalone.StandAloneDesign"/>
         </classes>
     </test>
+    -->
 </suite>
