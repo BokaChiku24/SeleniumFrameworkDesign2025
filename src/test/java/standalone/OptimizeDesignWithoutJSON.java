@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class OptimizeDesignWithoutJSON extends BaseTest {
 
-    @Test(dataProvider = "getData", groups = {"Purchase"})
+    @Test(dataProvider = "getData", groups = {"Purchase","Regression"})
     public void endToEnd(HashMap<String,String> map) throws IOException {
         // create an account
         // RegisterPage rp = new RegisterPage(driver);

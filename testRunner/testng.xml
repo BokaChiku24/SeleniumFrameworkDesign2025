@@ -4,6 +4,11 @@
     <listeners>
         <listener class-name="testcomponents.TestListeners"></listener>
     </listeners>
+    <groups>
+        <run>
+            <include name="Regression"/>
+        </run>
+    </groups>
     <test verbose="2" preserve-order="true" name="/Users/kunalchavan/IdeaProjects/SeleniumFrameworkDesign"
           thread-count="5">
         <classes>
