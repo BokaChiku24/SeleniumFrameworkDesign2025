@@ -17,18 +17,16 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Purchase the order from E-commerce website
+Feature: Error Validation
   I want to use this template for my feature file
 
-  Background:
+  @ErrorValidation
+  Scenario Outline: Error validation in the Ecommerce
     Given I landed on Ecommerce Page
-  @Regression
-  Scenario Outline: Positive test of submitting order
-    Given Login to the application with username <name> and password <password>
-    When I add <product> to the cart
-    And Checkout <product> and submit the order <country>
-    Then "THANKYOU FOR THE ORDER." message is displayed on ConfirmationPage
+    When Login to the application with username <name> and password <password>
+    Then "Incorrect email or password." message is displayed
     Examples:
-      |name             |password   |product      |country  |
-      |testkc@gmail.com |Admin@123  |ZARA COAT 3  |India    |
+      |name                 |password   |
+      |testkc3232@gmail.com |Admin@123  |
+      |tddfc3232@gmail.com  |Admin24@123  |
 
