@@ -3,10 +3,12 @@ package testcomponents;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -35,9 +37,14 @@ public class BaseTest {
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/GlobalData.properties");
         prop.load(fis);
         String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
-        if (browserName.equalsIgnoreCase("Chrome")) {
+        if (browserName.contains("Chrome")) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
-            driver = new ChromeDriver();
+            ChromeOptions option = new ChromeOptions();
+            if(browserName.contains("Headless")){
+                option.addArguments("headless");
+            }
+            driver = new ChromeDriver(option);
+            driver.manage().window().setSize(new Dimension(1440,900)); // full screen
         } else if (browserName.equalsIgnoreCase("Firefox")) {
             System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/SeleniumDrivers/geckodriver");
             driver = new FirefoxDriver();
