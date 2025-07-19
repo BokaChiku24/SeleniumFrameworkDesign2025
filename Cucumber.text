@@ -1,0 +1,34 @@
+Cucumber Terminologies:
+
+What is Gherkin?
+It is a Business Readable, Domain Specific lanaguage that lets you describe behaviour.
+Example: Popup messaged is displayed when buttons are clicked and errors are gone
+
+Developer: Popup message is displayed and errors are gone on button clicked
+QA: Popup message is displayed - only when buttons are clicked and error are gone
+
+Keywords used in Cucumber: Scenario, Feature, Feature File, Scenario OutLine,Step Definition
+
+Scenarios:
+In Cucumber Testcases are represented as Scenarios.
+
+Scenarios contains Steps which are equivalent to test steps and use the following keywords (Gherkin Syntax) to denote
+them: Given, When, Then, But, and And (case sensitive)
+
+1. Given: Pre-conditions are mentioned in the Given keyword
+2. When: The purpose of the When step is to describe the user action
+3. Then: The purpose of then STep is to observe the expected output. The observation should be related to the
+         business value/benifits of your Feature description.
+4. And: This is used for statements that are an addition to the previous Step and represent positive statement.
+5. But: This is used for statement that are an addition to the previous Steps and represent negative statement
+
+Example:
+Scenario: Make Minimum Due Payment
+Given: User is on pay card page
+When: User fills all details and select minimum amount
+And: User clicks on the pay button
+Then: Credit card confirmation page displayed
+
+When we specify a business requirement, sometimes there are multiple pre-conditions, user action, and expected results.
+
+
